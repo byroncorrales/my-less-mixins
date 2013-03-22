@@ -1,4 +1,5 @@
-// AUTOR: Byron Corrales | https://github.com/byroncorrales/my-less-mixing
+// AUTOR: Byron Corrales | https://github.com/byroncorrales/my-less-mixins
+// CONTRIBUTIONS: Helmy Giacoman | @eos87;
 
 // GENERAL 
 
@@ -43,14 +44,14 @@
 // GRADIENTS
 
 .linear-gradient(@start:#eee,@end:#fff,@stop:25%){
-    background-color: @start;
-    background-repeat: no-repeat;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@start), color-stop(@stop, @start), to(@end));
     background-image: -webkit-linear-gradient(@start, @start @stop, @end);
     background-image: -moz-linear-gradient(top, @start, @start @stop, @end);
     background-image: -ms-linear-gradient(@start, @start @stop, @end);
     background-image: -o-linear-gradient(@start, @start @stop, @end);
     background-image: linear-gradient(@start, @start @stop, @end);
+    background-repeat: no-repeat;
+    background-color: @start;
 }
 
 .opacity(@o:0.7){
@@ -80,80 +81,109 @@
 }
 
 .text-shadow(@hor: 0px, @vert: 0px, @blur: 5px, @shadow: #929292){
-    text-shadow: @arguments;
     -moz-text-shadow: @arguments;
     -webkit-text-shadow: @arguments;
+    text-shadow: @arguments;
 }
 
 // CORNERS
 
 .rounded-corners(@radio: 5px){
-    border-radius: @radio;
     -ms-border-radius: @radio;
     -moz-border-radius: @radio;
     -webkit-border-radius: @radio;
     -khtml-border-radius: @radio;
+    border-radius: @radio;
 }
 
 .rounded-corners-bottom(@radio:5px){
-    border-bottom-right-radius:@radio;
-    border-bottom-left-radius:@radio;
     -moz-border-radius-bottomright:@radio;
     -moz-border-radius-bottomleft:@radio;
     -webkit-border-bottom-left-radius:@radio;
     -webkit-border-bottom-right-radius:@radio;
+    border-bottom-right-radius:@radio;
+    border-bottom-left-radius:@radio;
 }
 
 .rounded-corners-top(@radio:5px){
-    border-top-right-radius:@radio;
-    border-top-left-radius:@radio;
     -moz-border-radius-topright:@radio;
     -moz-border-radius-topleft:@radio;
     -webkit-border-top-left-radius:@radio;
     -webkit-border-top-right-radius:@radio;
+    border-top-right-radius:@radio;
+    border-top-left-radius:@radio;
 }
 
 .rounded-corners-right(@radio:5px){
-    border-top-right-radius:@radio;
-    border-bottom-right-radius:@radio;
     -moz-border-radius-topright:@radio;
     -moz-border-radius-bottomright:@radio;
     -webkit-border-bottom-right-radius:@radio;
     -webkit-border-top-right-radius:@radio;
+    border-top-right-radius:@radio;
+    border-bottom-right-radius:@radio;
 }
 
 .rounded-corners-left(@radio:5px){
-    border-top-left-radius:@radio;
-    border-bottom-left-radius:@radio;
     -moz-border-radius-topleft:@radio;
     -moz-border-radius-bottomleft:@radio;
     -webkit-border-bottom-left-radius:@radio;
     -webkit-border-top-left-radius:@radio;
+    border-top-left-radius:@radio;
+    border-bottom-left-radius:@radio;
 }
 
 .rounded-corners-combined(@radio:5px){
-    border-top-left-radius:@radio;
-    border-bottom-right-radius:@radio;
     -moz-border-radius-topleft:@radio;
     -moz-border-radius-bottomright:@radio;
     -webkit-border-bottom-right-radius:@radio;
     -webkit-border-top-left-radius:@radio;
+    border-top-left-radius:@radio;
+    border-bottom-right-radius:@radio;
 }
 
 .rounded-corners-right-bottom(@radio:5px){
-    border-bottom-right-radius:@radio;
     -moz-border-radius-bottomright:@radio;
     -webkit-border-bottom-right-radius:@radio;
+    border-bottom-right-radius:@radio;
 }
 
 .rounded-corners-left-bottom(@radio:5px){
-    border-bottom-left-radius:@radio;
     -moz-border-radius-bottomleft:@radio;
     -webkit-border-bottom-left-radius:@radio;
+    border-bottom-left-radius:@radio;
 }
 
 .rounded-corners-right-top(@radio:5px){
-    border-top-right-radius:@radio;
     -moz-border-radius-topright:@radio;
     -webkit-border-top-right-radius:@radio;
+    border-top-right-radius:@radio;
+}
+
+
+// ARROWS
+// Use: .arrow-top(10px, red, left) to make an arrow in left direction
+
+.arrow(@border:6px, @color:blue, @orientation:top) when (@orientation = top), (@orientation = bottom){    
+    border-left: @border solid transparent;
+    border-right: @border solid transparent;
+}
+.arrow(@border:6px, @color:blue, @orientation:top) when (@orientation = top){
+    border-bottom: @border solid @color;
+}
+.arrow(@border:6px, @color:blue, @orientation:top) when (@orientation = bottom){
+    border-top: @border solid @color;
+}
+.arrow(@border:6px, @color:blue, @orientation:top) when (@orientation = left), (@orientation = right){    
+    border-top: @border solid transparent;
+    border-bottom: @border solid transparent;
+}    
+.arrow(@border:6px, @color:blue, @orientation:top) when (@orientation = left){
+    border-right: @border solid @color;
+}
+.arrow(@border:6px, @color:blue, @orientation:top) when (@orientation = right){
+    border-left: @border solid @color;
+}
+.arrow(@border:6px, @color:blue, @orientation:top){
+    width: 0; 
+    height: 0;
 }
