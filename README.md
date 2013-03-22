@@ -11,3 +11,4 @@ Just import this file in your less styles
 @import "mixins.less"
 
 Autor: Byron Corrales
+Contributions: Hemy Giacoman
