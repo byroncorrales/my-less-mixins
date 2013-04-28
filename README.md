@@ -8,7 +8,7 @@ Use
 
 Just import this file in your less styles
 
-@import "mixins.less"
+@import "mixins.less";
 
 Autor: Byron Corrales
 Contributions: Hemy Giacoman
