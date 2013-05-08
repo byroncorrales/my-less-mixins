@@ -80,10 +80,28 @@
     box-shadow: @arguments inset !important;
 }
 
+.box-shadow-reset(@val:none){
+    -webkit-box-shadow: @val !important;
+    -moz-box-shadow: @val !important;
+    box-shadow: @val !important;
+}
+
+.box-sizing(@model: border-box){
+    -webkit-box-sizing: @model;
+    -moz-box-sizing: @model;
+    box-sizing: @model; 
+}
+
 .text-shadow(@hor: 0px, @vert: 0px, @blur: 5px, @shadow: #929292){
     -moz-text-shadow: @arguments;
     -webkit-text-shadow: @arguments;
     text-shadow: @arguments;
+}
+
+.text-shadow-reset(@val:none){
+    text-shadow: @val;
+    -moz-text-shadow: @val;
+    -webkit-text-shadow: @val; 
 }
 
 // CORNERS
@@ -159,6 +177,13 @@
     border-top-right-radius:@radio;
 }
 
+.rounded-corners-reset(@val:0px){
+    -ms-border-radius: @val !important;
+    -moz-border-radius: @val !important;
+    -webkit-border-radius: @val !important;
+    -khtml-border-radius: @val !important;  
+    border-radius: @val !important;
+}
 
 // ARROWS
 // Use: .arrow(10px, red, left) to make an arrow in left direction
